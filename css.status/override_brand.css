@@ -1,0 +1,88 @@
+/* Solaris orange brand overrides */
+:root{
+  --theme-brand_primary: 195, 0, 235;
+  --theme-brand_secondary: 195, 0, 235;
+  --theme-brand_gradient: linear-gradient(60deg, rgb(195, 0, 235), rgba(195, 0, 235, 0.9));
+  --theme-brand_gradient_webkit: linear-gradient(60deg, rgb(195, 0, 235), rgba(195, 0, 235, 0.9));
+}
+::-webkit-scrollbar-thumb{background:var(--theme-brand_gradient) !important}
+
+ 
+
+.cNexusProduct__prices .cNexusPrice {
+  background: rgba(195, 0, 235, 0.2) !important;
+  color: #C300EB !important;
+}
+
+.image-title { border-bottom-color: #C300EB !important; }
+
+.box ul li i,
+.requirements_section ul li i,
+.corefeatures_section ul li i {
+  color: #C300EB !important;
+}
+
+.backlink_pages_whychooseus,
+.astrion_backlink_ntc_section {
+  border-left-color: #C300EB !important;
+  border-right-color: #C300EB !important;
+}
+
+.cNexusProduct:hover {
+  border-color: rgba(195, 0, 235, 0.7) !important;
+  box-shadow: 0 0 0 4px rgba(195, 0, 235, 0.10) !important;
+}
+
+.cStorePackage_button:hover,
+.elCluster_button.active,
+.cStorePackage_button,
+.status-tabButton.is-active,
+.status-tabButton:hover:not(.is-active),
+.groups-tabButton.is-active,
+.groups-tabButton:hover:not(.is-active) {
+  background-image: var(--theme-brand_gradient) !important;
+}
+
+/* Scrollbar and misc accents */
+/* Footer links hover effect */
+#elFooterLinks li a:hover {
+  color: #C300EB !important;
+}
+
+.copyright:hover {
+  color: #C300EB !important;
+}
+
+::-webkit-scrollbar-thumb { background: var(--theme-brand_gradient) !important; }
+
+
+/* Hero banner background */
+.theme-header__hero{
+  background-image:url('../images.status/84c1e40ea0e759e3f1505eb1788ddf3c_hero.webp');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+}
+
+/* Normalizacja wyglądu przycisków Purchase (po zamianie <a> -> <button>) */
+.statusButton {
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+}
+.statusButton::-moz-focus-inner { border: 0; padding: 0; }
+.ipsApp .statusButtonRow > button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.onlineIcon {
+	background-image: linear-gradient(to right, #9dff88, #9dff88, #9dff88) !important;
+	color: #9dff88 !important;
+}
+
+.cOnlineUsers_co > span:first-child {
+  color: #9dff88 !important;
+}

@@ -1,0 +1,35 @@
+/* Solaris orange brand overrides */
+:root{
+  --theme-brand_primary: 195, 0, 235;
+  --theme-brand_secondary: 195, 0, 235;
+  --theme-brand_gradient: linear-gradient(60deg, rgb(195, 0, 235), rgba(195, 0, 235, 0.9));
+  --theme-brand_gradient_webkit: linear-gradient(60deg, rgb(195, 0, 235), rgba(195, 0, 235, 0.9));
+}
+::-webkit-scrollbar-thumb{background:var(--theme-brand_gradient) !important}
+
+/* Footer links hover effect */
+#elFooterLinks li a:hover {
+  color: #C300EB !important;
+}
+
+.copyright:hover {
+  color: #C300EB !important;
+}
+
+/* Hero banner background */
+.theme-header__hero{
+  background-image:url('../images.guides/84c1e40ea0e759e3f1505eb1788ddf3c_hero.webp');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+}
+
+.onlineIcon {
+	background-image: linear-gradient(to right, #9dff88, #9dff88, #9dff88) !important;
+	color: #9dff88 !important;
+}
+
+.cOnlineUsers_co > span:first-child {
+  color: #9dff88 !important;
+}
+

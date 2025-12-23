@@ -1,0 +1,312 @@
+/* Brand overrides to switch theme to Solaris purple and remove previous blue accents */
+:root {
+  --theme-brand_primary: 195, 0, 235;
+  --theme-brand_secondary: 195, 0, 235;
+  --theme-brand_gradient: linear-gradient(60deg, rgb(195, 0, 235), rgba(195, 0, 235, 0.9));
+  --theme-brand_gradient_webkit: linear-gradient(60deg, rgb(195, 0, 235), rgba(195, 0, 235, 0.9));
+}
+
+ 
+
+.cNexusProduct__prices .cNexusPrice {
+  background: rgba(195, 0, 235, 0.2) !important;
+  color: #C300EB !important;
+}
+
+.image-title { border-bottom-color: #C300EB !important; }
+
+.box ul li i,
+.requirements_section ul li i,
+.corefeatures_section ul li i {
+  color: #C300EB !important;
+}
+
+.backlink_pages_whychooseus,
+.astrion_backlink_ntc_section {
+  border-left-color: #C300EB !important;
+  border-right-color: #C300EB !important;
+}
+
+.cNexusProduct:hover {
+  border-color: rgba(195, 0, 235, 0.7) !important;
+  box-shadow: 0 0 0 4px rgba(195, 0, 235, 0.10) !important;
+}
+
+.cStorePackage_button:hover,
+.elCluster_button.active,
+.cStorePackage_button,
+.status-tabButton.is-active,
+.status-tabButton:hover:not(.is-active),
+.groups-tabButton.is-active,
+.groups-tabButton:hover:not(.is-active) {
+  background-image: var(--theme-brand_gradient) !important;
+}
+
+/* Footer links hover effect */
+#elFooterLinks li a:hover {
+  color: #C300EB !important;
+}
+
+.copyright:hover {
+  color: #C300EB !important;
+}
+
+/* Hero banner background */
+.theme-header__hero{
+  background-image:url('../images.home/84c1e40ea0e759e3f1505eb1788ddf3c_hero.webp');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+}
+
+/* Scrollbar and misc accents */
+::-webkit-scrollbar-thumb { background: var(--theme-brand_gradient) !important; }
+
+.onlineIcon {
+	background-image: linear-gradient(to right, #9dff88, #9dff88, #9dff88) !important;
+	color: #9dff88 !important;
+}
+
+.cOnlineUsers_co > span:first-child {
+  color: #9dff88 !important;
+}
+
+/* Games Scroll Bar - from index-copy */
+@keyframes marquee2 {
+    0% {
+        transform: translate(0);
+    }
+    to {
+        transform: translate(calc(-100% - 8rem));
+    }
+}
+
+.h8w2e {
+    animation: marquee2 40s linear infinite;
+}
+
+/* Additional utility classes needed for games scroll section */
+.ibb3t {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.belgi {
+    border-color: #52525b99;
+}
+
+.qpn4g {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Section background - transparent */
+section.ibb3t.belgi.qpn4g {
+    background-color: transparent;
+}
+
+.c4z9k {
+    position: relative;
+}
+
+.zxndb {
+    max-width: 1800px;
+}
+
+.f13gq {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.z90gb {
+    overflow: hidden;
+}
+
+.vh4wn {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.euhmq {
+    position: absolute;
+    pointer-events: none;
+}
+
+.k4kwe {
+    top: 0;
+}
+
+.-left-px {
+    left: -1px;
+}
+
+.-right-px {
+    right: -1px;
+}
+
+.jmbkg {
+    z-index: 10;
+}
+
+.ke2ao {
+    width: 20%;
+}
+
+.ah0hi {
+    height: 100%;
+}
+
+.lmnrd {
+    --tw-gradient-from: #18181b var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(24 24 27 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.gthu1 {
+    --tw-gradient-from-position: 20%;
+}
+
+.w2w97 {
+    --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.pu3im {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.z4smb {
+    background-image: linear-gradient(to left, var(--tw-gradient-stops));
+}
+
+.fwwuj {
+    display: flex;
+}
+
+.q3tt2 {
+    align-items: center;
+}
+
+.odjs5 {
+    gap: 8rem;
+}
+
+.tf91y {
+    justify-content: space-around;
+}
+
+.a3x22 {
+    min-width: 100%;
+}
+
+.aon2l {
+    flex-shrink: 0;
+}
+
+.xw4t9 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.thmud {
+    width: auto;
+}
+
+.vgxft {
+    height: 2.5rem;
+}
+
+.cirrb {
+    background-color: transparent;
+}
+
+/* Hero Stats and Buttons */
+.heroStats {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.heroStatItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.heroStatLabel {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.heroStatValue {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.heroButtons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.heroButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.heroButton_primary {
+    background: var(--theme-brand_gradient);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(195, 0, 235, 0.4);
+}
+
+.heroButton_primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(195, 0, 235, 0.6);
+    color: #fff;
+}
+
+.heroButton_secondary {
+    background: rgba(255, 255, 255, 0.02);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.heroButton_secondary:hover {
+    background: rgba(195, 0, 235, 0.1);
+    border-color: rgba(195, 0, 235, 0.1);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .heroStats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .heroButtons {
+        flex-direction: column;
+    }
+    
+    .heroButton {
+        width: 100%;
+    }
+}
+
+
