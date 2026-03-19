@@ -30,9 +30,10 @@ const server = http.createServer((req, res) => {
   // Pobierz ścieżkę URL bez query string
   const parsedUrl = url.parse(req.url);
   const urlPath = parsedUrl.pathname;
+  const normalizedPath = urlPath.endsWith('/') && urlPath !== '/' ? urlPath.slice(0, -1) : urlPath;
   
   // Sprawdź czy to plik statyczny (CSS, JS, obrazy, itp.)
-  const extname = String(path.extname(urlPath)).toLowerCase();
+  const extname = String(path.extname(normalizedPath)).toLowerCase();
   const hasStaticExtension = extname && extname !== '.html';
   
   // Jeśli to plik statyczny, obsłuż bezpośrednio
@@ -51,9 +52,11 @@ const server = http.createServer((req, res) => {
   }
   
   // Obsługa plików HTML (clean URLs)
-  if (urlPath.endsWith('.html')) {
-    filePath = '.' + urlPath;
-  } else if (!path.extname(urlPath)) {
+  if (normalizedPath === '/status' || normalizedPath === '/status.html') {
+    filePath = './js.home/status.html';
+  } else if (normalizedPath.endsWith('.html')) {
+    filePath = '.' + normalizedPath;
+  } else if (!path.extname(normalizedPath)) {
     // Jeśli brak rozszerzenia, spróbuj dodać .html
     filePath += '.html';
   }
@@ -101,4 +104,3 @@ server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
   console.log('Clean URLs enabled - .html extension will be removed');
 });
-

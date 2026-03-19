@@ -25,10 +25,6 @@
       "destination": "/battlefield-6.html"
     },
     {
-      "source": "/bo6-warzone-external",
-      "destination": "/bo6-warzone-external.html"
-    },
-    {
       "source": "/delta-force",
       "destination": "/delta-force.html"
     },
@@ -62,7 +58,7 @@
     },
     {
       "source": "/status",
-      "destination": "/status.html"
+      "destination": "/js.home/status.html"
     },
     {
       "source": "/support",

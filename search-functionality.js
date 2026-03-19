@@ -143,7 +143,7 @@
         if (fileName === 'index.html' || fileName === '') return 'home';
         
         // Check for product pages
-        const productPages = ['valorant', 'rust', 'fortnite', 'battlefield', 'delta-force', 'bo6', 'warzone', 'hwid'];
+        const productPages = ['valorant', 'rust', 'fortnite', 'battlefield', 'delta-force', 'hwid'];
         if (productPages.some(p => fileName.includes(p))) return 'products';
         
         return 'generic';
@@ -538,4 +538,3 @@
     }
 
 })();
-

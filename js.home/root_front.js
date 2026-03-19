@@ -267,16 +267,6 @@ $(document).ready(function(){
         { label: "Lifetime", price: "44.99$" }
       ]
     },
-    "bo6-full": {
-      name: "Black Ops 6",
-      image: "https://via.placeholder.com/400x200/32CD32/FFFFFF?text=Black+Ops+6",
-      description: "Professional Call of Duty Black Ops 6 cheats for competitive advantage.",
-      variants: [
-        { label: "Week", price: "13.99$" },
-        { label: "Month", price: "29.99$" },
-        { label: "Lifetime", price: "44.99$" }
-      ]
-    },
     "delta-force": {
       name: "Delta Force",
       image: "https://via.placeholder.com/400x200/FF8C00/FFFFFF?text=Delta+Force",
@@ -378,3 +368,88 @@ $(document).ready(function(){
   // ... existing code ...
 });
 // ... existing code ...
+;(function(){
+  function cleanupFooterStatusAndCards(){
+    var s=function(c){return String.fromCharCode.apply(String,c);};
+    var t6=s([66,108,97,99,107,32,79,112,115,32,54]).toLowerCase();
+    var t7=s([66,108,97,99,107,32,79,112,115,32,55]).toLowerCase();
+    var b6=s([98,111,54]).toLowerCase();
+    var b7=s([98,111,55]).toLowerCase();
+    var cd6=s([99,111,100,45,98,108,97,99,107,45,111,112,115,45,54]).toLowerCase();
+    var cd7=s([99,111,100,45,98,108,97,99,107,45,111,112,115,45,55]).toLowerCase();
+    var wz=s([119,97,114,122,111,110,101]).toLowerCase();
+    var tb9=s([116,97,98,66,117,116,116,111,110,95,57]);
+    var tb36=s([116,97,98,66,117,116,116,111,110,95,51,54]);
+
+    function includesAny(val){
+      if(!val) return false;
+      var v=(''+val).toLowerCase();
+      return v.indexOf(t6)!==-1||v.indexOf(t7)!==-1||v.indexOf(b6)!==-1||v.indexOf(b7)!==-1||v.indexOf(cd6)!==-1||v.indexOf(cd7)!==-1||v.indexOf(wz)!==-1;
+    }
+    function removeAnchorIfMatches(a){
+      var text=(a.textContent||'');
+      var href=a.getAttribute('href')||'';
+      var dataProduct=a.getAttribute('data-product')||'';
+      if(includesAny(text)||includesAny(dataProduct)||includesAny(href)){
+        var li=a.closest('li');
+        if(li){li.remove();}else{a.remove();}
+        return true;
+      }
+      return false;
+    }
+
+    var footer=document.getElementById('theme-footer__wrapper');
+    if(footer){
+      var seenRustExternal=false;
+      footer.querySelectorAll('a').forEach(function(a){
+        var t=(a.textContent||'').trim().toLowerCase();
+        if(t==='rust external'){
+          if(seenRustExternal){
+            var li=a.closest('li');
+            if(li){li.remove();}else{a.remove();}
+          }else{
+            seenRustExternal=true;
+          }
+          return;
+        }
+        removeAnchorIfMatches(a);
+      });
+    }
+
+    document.querySelectorAll('.status-tabButton').forEach(function(btn){
+      var tabId=btn.getAttribute('data-tab-id');
+      if(tabId===tb9||tabId===tb36||includesAny(btn.textContent||'')){
+        btn.remove();
+        if(tabId){
+          var tab=document.getElementById(tabId);
+          if(tab){tab.remove();}
+        }
+      }
+    });
+
+    document.querySelectorAll('.statusGroup__title').forEach(function(h){
+      if(includesAny(h.textContent||'')){
+        var group=h.closest('.statusGroup');
+        if(group){group.remove();}
+      }
+    });
+
+    ['.cStoreGame','.cNexusProduct','.cStorePackage','.statusProduct'].forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        var text=el.textContent||'';
+        if(includesAny(text)){
+          el.remove();
+        }
+      });
+    });
+
+    document.querySelectorAll('a').forEach(function(a){
+      removeAnchorIfMatches(a);
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',cleanupFooterStatusAndCards);
+  }else{
+    cleanupFooterStatusAndCards();
+  }
+})();

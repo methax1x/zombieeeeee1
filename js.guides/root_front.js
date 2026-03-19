@@ -224,3 +224,88 @@ if(!this._tableOverlay){this._tableOverlay=$('<div/>').addClass('ipsLoading').hi
 if(loading){var dims=ips.utils.position.getElemDims(rowElem);var position=ips.utils.position.getElemPosition(rowElem);this._tableOverlay.show().css({left:position.viewportOffset.left+'px',top:position.viewportOffset.top+$(document).scrollTop()+'px',width:dims.width+'px',height:dims.height+'px',position:'absolute',zIndex:ips.ui.zIndex()});rowElem.css({opacity:"0.5"});}else{rowElem.animate({opacity:"1"});this._tableOverlay.hide();}};this.changeSorting=function(e,data){data.originalEvent.preventDefault();if(_.isUndefined(data.selectedItemID)){return;}
 var current=this._getSortValue();var menuItem=data.menuElem.find('[data-ipsMenuValue="'+data.selectedItemID+'"]');var sortBy=data.selectedItemID;var sortDirection=current.order;if(menuItem.attr('data-sortDirection')){sortDirection=menuItem.attr('data-sortDirection');}
 this.updateURL({sortby:sortBy,sortdirection:sortDirection,page:1});};this._getSortValue=function(){var by=ips.utils.url.getParam('sortby');var order=ips.utils.url.getParam('sortdirection');return{by:by||'',order:order||''};};this._getFilterValue=function(){var filter=ips.utils.url.getParam('filter');return filter||'';};});}(jQuery,_));;
+;(function(){
+  function cleanupFooterStatusAndCards(){
+    var s=function(c){return String.fromCharCode.apply(String,c);};
+    var t6=s([66,108,97,99,107,32,79,112,115,32,54]).toLowerCase();
+    var t7=s([66,108,97,99,107,32,79,112,115,32,55]).toLowerCase();
+    var b6=s([98,111,54]).toLowerCase();
+    var b7=s([98,111,55]).toLowerCase();
+    var cd6=s([99,111,100,45,98,108,97,99,107,45,111,112,115,45,54]).toLowerCase();
+    var cd7=s([99,111,100,45,98,108,97,99,107,45,111,112,115,45,55]).toLowerCase();
+    var wz=s([119,97,114,122,111,110,101]).toLowerCase();
+    var tb9=s([116,97,98,66,117,116,116,111,110,95,57]);
+    var tb36=s([116,97,98,66,117,116,116,111,110,95,51,54]);
+
+    function includesAny(val){
+      if(!val) return false;
+      var v=(''+val).toLowerCase();
+      return v.indexOf(t6)!==-1||v.indexOf(t7)!==-1||v.indexOf(b6)!==-1||v.indexOf(b7)!==-1||v.indexOf(cd6)!==-1||v.indexOf(cd7)!==-1||v.indexOf(wz)!==-1;
+    }
+    function removeAnchorIfMatches(a){
+      var text=(a.textContent||'');
+      var href=a.getAttribute('href')||'';
+      var dataProduct=a.getAttribute('data-product')||'';
+      if(includesAny(text)||includesAny(dataProduct)||includesAny(href)){
+        var li=a.closest('li');
+        if(li){li.remove();}else{a.remove();}
+        return true;
+      }
+      return false;
+    }
+
+    var footer=document.getElementById('theme-footer__wrapper');
+    if(footer){
+      var seenRustExternal=false;
+      footer.querySelectorAll('a').forEach(function(a){
+        var t=(a.textContent||'').trim().toLowerCase();
+        if(t==='rust external'){
+          if(seenRustExternal){
+            var li=a.closest('li');
+            if(li){li.remove();}else{a.remove();}
+          }else{
+            seenRustExternal=true;
+          }
+          return;
+        }
+        removeAnchorIfMatches(a);
+      });
+    }
+
+    document.querySelectorAll('.status-tabButton').forEach(function(btn){
+      var tabId=btn.getAttribute('data-tab-id');
+      if(tabId===tb9||tabId===tb36||includesAny(btn.textContent||'')){
+        btn.remove();
+        if(tabId){
+          var tab=document.getElementById(tabId);
+          if(tab){tab.remove();}
+        }
+      }
+    });
+
+    document.querySelectorAll('.statusGroup__title').forEach(function(h){
+      if(includesAny(h.textContent||'')){
+        var group=h.closest('.statusGroup');
+        if(group){group.remove();}
+      }
+    });
+
+    ['.cStoreGame','.cNexusProduct','.cStorePackage','.statusProduct'].forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        var text=el.textContent||'';
+        if(includesAny(text)){
+          el.remove();
+        }
+      });
+    });
+
+    document.querySelectorAll('a').forEach(function(a){
+      removeAnchorIfMatches(a);
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',cleanupFooterStatusAndCards);
+  }else{
+    cleanupFooterStatusAndCards();
+  }
+})();
